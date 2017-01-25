@@ -31,10 +31,12 @@ class metroBot:
         
     def getDirection(self, directions):
         print "Which direction are you traveling?"
+        availableDirections = []
         for d in range(0, len(directions)):
+            availableDirections.append(directions[d]['Value'])
             print directions[d]['Value'], directions[d]['Text']
         direction = raw_input()  
-        if int(direction) < 1 or int(direction) > 4:
+        if direction not in availableDirections:
             print "invalid direction, try again"
             direction = self.getDirection(directions)
                                                       
